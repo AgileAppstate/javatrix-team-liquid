@@ -1,0 +1,7 @@
+1) Create project board with to do list card for each method
+2) Create makefile and checkstyle
+3) Scaffold the project
+4) Figure out who's doing each method
+
+Sprint #1
+1) Pass the TestTrix.java
