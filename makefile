@@ -48,10 +48,10 @@ test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
 
 defchk: JavaTrix.java $(CKSTYLE_XML)
-	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) HelloWorld.java
+	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) JavaTrix.java
 
-customchk: HelloWorld.java style.xml
-	java $(CKSTYLE_COMMAND) -c style.xml HelloWorld.java
+customchk: JavaTrix.java style.xml
+	java $(CKSTYLE_COMMAND) -c style.xml JavaTrix.java
 
 style.xml:
 	@echo "Custom checkstyle needs a local style.xml file."
