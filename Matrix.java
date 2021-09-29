@@ -40,4 +40,17 @@ public class Matrix implements Cloneable, Serializable
     {
         //TODO
     }
+
+    /**
+     *
+     * Prints the matrix to stdout with elements lined up in
+     * columns with a Fortran-like 'Fw.d' style format
+     *
+     * @param w The column width
+     * @param d The number of digits after the decimal
+     */
+    public void print(int w, int d)
+    {
+        //TODO
+    }
 }
