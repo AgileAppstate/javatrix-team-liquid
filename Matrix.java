@@ -12,7 +12,7 @@ public class Matrix implements Cloneable, Serializable
      */
     public Matrix(double[][] A)
     {
-        //TODO
+        vals = A.clone();
     }
 
     /**
