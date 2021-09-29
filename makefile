@@ -36,8 +36,8 @@ help:
 #etc.
 #Essential that command lines start with single TAB character
 
-compile: JavaTrix/Matrix.java Customtest.java $(JUNIT5_JAR)
-	javac -cp .:$(JUNIT5_JAR) Customtest.java
+compile: JavaTrix/Matrix.java MatrixTest.java $(JUNIT5_JAR)
+	javac -cp .:$(JUNIT5_JAR) MatrixTest.java
 	javac JavaTrix/Matrix.java
 
 clean:
@@ -47,7 +47,7 @@ clean:
 test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
 
-defchk: JavaTrixMatrix.java $(CKSTYLE_XML)
+defchk: JavaTrix/Matrix.java $(CKSTYLE_XML)
 	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) JavaTrix/Matrix.java
 
 customchk: JavaTrix/Matrix.java style.xml
