@@ -36,9 +36,9 @@ help:
 #etc.
 #Essential that command lines start with single TAB character
 
-compile: JavaTrix.java TestTrix.java $(JUNIT5_JAR)
-	javac -cp .:$(JUNIT5_JAR) TestTrix.java
-	javac JavaTrix.java
+compile: Matrix.java Customtest.java $(JUNIT5_JAR)
+	javac -cp .:$(JUNIT5_JAR) Customtest.java
+	javac Matrix.java
 
 clean:
 	rm -f *~
@@ -47,11 +47,11 @@ clean:
 test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
 
-defchk: JavaTrix.java $(CKSTYLE_XML)
-	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) HelloWorld.java
+defchk: Matrix.java $(CKSTYLE_XML)
+	java $(CKSTYLE_COMMAND) -c $(CKSTYLE_XML) Matrix.java
 
-customchk: HelloWorld.java style.xml
-	java $(CKSTYLE_COMMAND) -c style.xml HelloWorld.java
+customchk: Matrix.java style.xml
+	java $(CKSTYLE_COMMAND) -c style.xml Matrix.java
 
 style.xml:
 	@echo "Custom checkstyle needs a local style.xml file."

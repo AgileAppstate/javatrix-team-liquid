@@ -1,5 +1,7 @@
 package JavaTrix;
 
+import java.io.Serializable;
+
 public class Matrix implements Cloneable, Serializable
 {
     private double[][] vals; // Field to store Matrix data
