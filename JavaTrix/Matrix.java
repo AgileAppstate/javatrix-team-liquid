@@ -41,6 +41,7 @@ public class Matrix implements Cloneable, Serializable
     public Matrix times(Matrix B)
     {
         //TODO
+        return null;
     }
 
     /**
@@ -54,5 +55,16 @@ public class Matrix implements Cloneable, Serializable
     public void print(int w, int d)
     {
         //TODO
+    }
+
+    /**
+     *
+     * Getter for vals
+     *
+     * @return The vals in the current Matrix
+     */
+    public double[][] getVals()
+    {
+        return vals;
     }
 }
