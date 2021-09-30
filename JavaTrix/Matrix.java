@@ -61,7 +61,7 @@ public class Matrix implements Cloneable, Serializable
      *
      * Getter for vals
      *
-     * @return The vals in the current Matrix
+     * @return The vals in the current Matri
      */
     public double[][] getVals()
     {
