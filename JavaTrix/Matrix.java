@@ -73,17 +73,33 @@ public class Matrix implements Cloneable, Serializable
 	int n = bVals[0].length;
 	double[][] prod = new double[m][n];
 	
+	// debugging 
+	System.out.println(m);
+	System.out.println(n);
+	
+
 	// these vector lengths should be the same. Calculating them both 
 	// so that checking for valid multplication later is easier to implement. 
 	double[] rowVector = new double[this.vals[0].length];
 	double[] colVector = new double[bVals.length];
 
+	// debugging
+	System.out.println(bVals.length);
+	System.out.println(this.vals[0].length);
+
 	for (int i = 0; i < m; i++) {
 		rowVector = this.vals[i];
-		for (int j = 0; j < n; n++) {
+		for (int j = 0; j < n; j++) {
 			for (int k = 0; k < bVals.length; k++) {
 				colVector[k] = bVals[k][j];
+				System.out.println(bVals[k][j]);
 			}
+		
+		// debugging	
+		System.out.println("made it out");
+
+
+
 		prod[i][j] = Matrix.dotProduct(rowVector, colVector);
 		}
 	}

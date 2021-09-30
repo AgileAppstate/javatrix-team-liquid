@@ -28,5 +28,17 @@ public class MatrixTest
 
         assertEquals(A.getVals(), testVals);
     }
+	
+    @Test
+    public void testTimesMatrix00()
+    {
+	Matrix A = new Matrix(3, 2, 5.);
+      	Matrix B = new Matrix(2, 3, 3.);
+	Matrix prod;
 
+	prod = A.times(B);
+
+	double[][] correctVals = {{30.,30.,30.},{30.,30.,30.},{30.,30.,30.}};
+	assertEquals(prod.getVals(), correctVals);
+    }
 }
