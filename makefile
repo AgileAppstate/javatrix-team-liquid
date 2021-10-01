@@ -36,8 +36,8 @@ help:
 #etc.
 #Essential that command lines start with single TAB character
 
-compile: JavaTrix/Matrix.java Customtest.java $(JUNIT5_JAR)
-	javac -cp .:$(JUNIT5_JAR) Customtest.java
+compile: JavaTrix/Matrix.java MatrixTest.java $(JUNIT5_JAR)
+	javac -cp .:$(JUNIT5_JAR) MatrixTest.java
 	javac JavaTrix/Matrix.java
 
 clean:
