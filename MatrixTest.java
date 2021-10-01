@@ -32,13 +32,26 @@ public class MatrixTest
     @Test
     public void testTimesMatrix00()
     {
-	Matrix A = new Matrix(3, 2, 5.);
+        Matrix A = new Matrix(3, 2, 5.);
       	Matrix B = new Matrix(2, 3, 3.);
-	Matrix prod;
+        Matrix prod;
+        
+        prod = A.times(B);
+        
+        double[][] correctVals = {{30.,30.,30.},{30.,30.,30.},{30.,30.,30.}};
+        
+        assertEquals(prod.getVals(), correctVals);
 
-	prod = A.times(B);
+        double[][] aVals = {{2.,5.,2.,12.,7.},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+        double[][] bVals = {{3.,2.},{35.,2.},{0.,3.},{7.,7.},{4.,5.}};
 
-	double[][] correctVals = {{30.,30.,30.},{30.,30.,30.},{30.,30.,30.}};
-	assertEquals(prod.getVals(), correctVals);
+        A = new Matrix(aVals);
+        B = new Matrix(bVals);
+
+        prod = A.times(B);
+
+        correctVals = new double[][]{{293., 139.},{1140.,91.},{207.,132.}};
+
+        assertEquals(prod.getVals(), correctVals);
     }
 }

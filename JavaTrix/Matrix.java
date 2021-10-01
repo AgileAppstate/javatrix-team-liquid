@@ -28,11 +28,12 @@ public class Matrix implements Cloneable, Serializable
      */
     public Matrix(int m, int n, double s)
     {
-	vals = new double[m][n];
-
-   	for (double[] row: vals) {
-		Arrays.fill(row, s);
-	}
+        vals = new double[m][n];
+        
+        for (double[] row: vals) 
+        {
+            Arrays.fill(row, s);
+        }
     }
 
     /**
@@ -44,15 +45,16 @@ public class Matrix implements Cloneable, Serializable
      *
      * @return The dot product of a*b
      */
-    private static double dotProduct(double[] a, double[] b) {
-	
-	double dotprod = 0.0;
-
-	for(int i = 0; i < a.length; i++) {
-		dotprod += a[i] * b[i];
-	}
-
-	return dotprod;
+    private static double dotProduct(double[] a, double[] b) 
+    {
+        double dotprod = 0.0;
+        
+        for(int i = 0; i < a.length; i++) 
+        {
+            dotprod += a[i] * b[i];
+        }
+        
+        return dotprod;
     }
 
     /**
@@ -66,43 +68,32 @@ public class Matrix implements Cloneable, Serializable
      */
     public Matrix times(Matrix B)
     {
-	// used to grab columns for dot product calculations 
-	double[][] bVals = B.getVals();
-	// size of product matrix 
-    	int m = this.vals.length;
-	int n = bVals[0].length;
-	double[][] prod = new double[m][n];
-	
-	// debugging 
-	System.out.println(m);
-	System.out.println(n);
-	
+        
+        double[][] bVals = B.getVals(); // Used to grab columns for dot product multiplications
+    	int m = this.vals.length; // Col size of product matrix
+	    int n = bVals[0].length; // Row size of product matrix
+	    double[][] prod = new double[m][n];
 
-	// these vector lengths should be the same. Calculating them both 
-	// so that checking for valid multplication later is easier to implement. 
-	double[] rowVector = new double[this.vals[0].length];
-	double[] colVector = new double[bVals.length];
+	    // These vector lengths should be the same. Calculating them both 
+	    // so that checking for valid multplication later is easier to implement. 
+	    double[] rowVector = new double[this.vals[0].length];
+	    double[] colVector = new double[bVals.length];
 
-	// debugging
-	System.out.println(bVals.length);
-	System.out.println(this.vals[0].length);
+	    for (int i = 0; i < m; i++) 
+        {
+            rowVector = this.vals[i];
 
-	for (int i = 0; i < m; i++) {
-		rowVector = this.vals[i];
-		for (int j = 0; j < n; j++) {
-			for (int k = 0; k < bVals.length; k++) {
-				colVector[k] = bVals[k][j];
-				System.out.println(bVals[k][j]);
-			}
-		
-		// debugging	
-		System.out.println("made it out");
+		    for (int j = 0; j < n; j++) 
+            {
+			    for (int k = 0; k < bVals.length; k++) 
+                {
+				    colVector[k] = bVals[k][j];
+			    }
 
+                prod[i][j] = Matrix.dotProduct(rowVector, colVector);
+		    }
+	    }
 
-
-		prod[i][j] = Matrix.dotProduct(rowVector, colVector);
-		}
-	}
         return new Matrix(prod);
     }
 
