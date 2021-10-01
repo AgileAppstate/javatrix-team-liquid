@@ -70,8 +70,8 @@ public class Matrix implements Cloneable, Serializable
     {
         
         double[][] bVals = B.getVals(); // Used to grab columns for dot product multiplications
-    	int m = this.vals.length; // Col size of product matrix
-	    int n = bVals[0].length; // Row size of product matrix
+        int m = this.vals.length; // Rows of product matrix
+	    int n = bVals[0].length; // Cols of product matrix
 	    double[][] prod = new double[m][n];
 
 	    // These vector lengths should be the same. Calculating them both 
