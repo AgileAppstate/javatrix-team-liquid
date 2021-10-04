@@ -129,7 +129,37 @@ public class Matrix implements Cloneable, Serializable
      */
     public void print(int w, int d)
     {
-        //TODO
+        int largestLength = 0;
+
+        // Looping over Matrix to determine largest value length to
+        // ensure proper printing
+        for(int i = 0; i < this.vals.length; i++)
+        {
+            for(int j = 0; j < this.vals[i].length; j++)
+            {
+                int valueLength = String.valueOf(this.vals[i][j]).length(); // Calculating length of matrix value
+
+                if(valueLength > largestLength)
+                {
+                    largestLength = valueLength; // Setting the largest length
+                }
+            }
+        }
+
+        if(largestLength > w)
+        {
+            w += largestLength - w + 1; // Changing the width value if it's too small to hold the largest length value. 1 is added to account for decimal
+        }
+
+        for(int i = 0; i < this.vals.length; i++)
+        {
+            for(int j = 0; j < this.vals[i].length; j++)
+            {
+                System.out.printf("%" + w + "." + d + "f ", this.vals[i][j]); // Printing with proper column width and decimal places
+            }
+
+            System.out.println();
+        }
     }
 
     /**
