@@ -54,4 +54,18 @@ public class MatrixTest
 
         assertEquals(prod.getVals(), correctVals);
     }
+
+    @Test
+    public void testTimeScalar00()
+    {
+	    double scalar = 2.;
+	    Matrix A = new Matrix(3, 2, 4.);
+	    Matrix prod;
+
+	    prod = A.times(scalar);
+
+	    double[][] correctVals = {{8.,8.},{8.,8.},{8.,8.}};
+
+	    assertEquals(prod.getVals(), correctVals);
+    }
 }

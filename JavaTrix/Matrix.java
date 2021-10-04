@@ -71,31 +71,53 @@ public class Matrix implements Cloneable, Serializable
         
         double[][] bVals = B.getVals(); // Used to grab columns for dot product multiplications
         int m = this.vals.length; // Rows of product matrix
-	    int n = bVals[0].length; // Cols of product matrix
-	    double[][] prod = new double[m][n];
+	int n = bVals[0].length; // Cols of product matrix
+	double[][] prod = new double[m][n];
 
-	    // These vector lengths should be the same. Calculating them both 
-	    // so that checking for valid multplication later is easier to implement. 
-	    double[] rowVector = new double[this.vals[0].length];
-	    double[] colVector = new double[bVals.length];
+	// These vector lengths should be the same. Calculating them both 
+	// so that checking for valid multplication later is easier to implement. 
+	double[] rowVector = new double[this.vals[0].length];
+	double[] colVector = new double[bVals.length];
 
-	    for (int i = 0; i < m; i++) 
+	for (int i = 0; i < m; i++) 
         {
-            rowVector = this.vals[i];
+		rowVector = this.vals[i];
+		for (int j = 0; j < n; j++) 
+            	{
+			for (int k = 0; k < bVals.length; k++) 
+                	{
+				colVector[k] = bVals[k][j];
+			}
 
-		    for (int j = 0; j < n; j++) 
-            {
-			    for (int k = 0; k < bVals.length; k++) 
-                {
-				    colVector[k] = bVals[k][j];
-			    }
+                	prod[i][j] = Matrix.dotProduct(rowVector, colVector);
+		}
+	}
+        return new Matrix(prod);
+    }
 
-                prod[i][j] = Matrix.dotProduct(rowVector, colVector);
+    /**
+     *
+     * Performs matrix multiplication with scalar and provided matrix. 
+     *
+     * @param s The scalar to mulitpily current matrix by
+     *
+     * @return The matrix resulting from the multiplication
+     */
+    public Matrix times(double s) 
+    {
+	    double[][] prod = new double[this.vals.length][this.vals[0].length];
+
+	    for (int i = 0; i < this.vals.length; i++) 
+	    {
+		    for (int j = 0; j < this.vals[0].length; j++)
+		    {
+			    prod[i][j] = this.vals[i][j] * s;
 		    }
 	    }
 
-        return new Matrix(prod);
+	    return new Matrix(prod);
     }
+		
 
     /**
      *
