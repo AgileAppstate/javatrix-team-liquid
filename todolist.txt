@@ -1,7 +1,7 @@
-1) Create project board with to do list card for each method
+1) Create project board with to do list card for each method (done by Brady)
 2) Create makefile and checkstyle (done by Joshua)
-3) Scaffold the project
-4) Figure out who's doing each method
+3) Scaffold the project (done by Joshua)
+4) Figure out who's doing each method (done)
 
 Sprint #1
-1) Pass the Testrix.java
+1) Pass the Testtrix.java (done by Brady and Joshua)
