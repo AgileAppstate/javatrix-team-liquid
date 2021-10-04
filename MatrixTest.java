@@ -1,4 +1,4 @@
-import JavaTrix.Matrix;
+import javatrix.Matrix;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

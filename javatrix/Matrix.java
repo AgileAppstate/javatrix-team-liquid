@@ -1,4 +1,4 @@
-package JavaTrix;
+package javatrix;
 
 import java.io.Serializable;
 import java.util.Arrays;
