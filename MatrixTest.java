@@ -68,4 +68,18 @@ public class MatrixTest
 
 	    assertEquals(prod.getVals(), correctVals);
     }
+
+    @Test
+    public void testTranspose()
+    {
+        double[][] aVals = {{2.,5.,2.,12.,7.},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix A = new Matrix(aVals);
+
+        Matrix transposeA = A.transpose();
+
+        double[][] correctVals = {{2.,4.,9.},{5.,32.,3.},{2.,3.,10.},{12.,0.,9},{7.,2.,3}};
+
+        assertEquals(transposeA.getVals(), correctVals);
+    }
 }
