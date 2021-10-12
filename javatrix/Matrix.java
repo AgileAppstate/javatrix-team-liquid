@@ -46,11 +46,55 @@ public class Matrix implements Cloneable, Serializable
     public Matrix(int m, int n)
     {
         vals = new double[m][n];
+    }
+
+    /**
+     *
+     * Constructs an m x n Matrix filled with values from provided 
+     * 2d array and fills anything missing with 0's. 
+     * 
+     * @param A 2d array of doubles to be stored within matrix
+     * @param m The number of rows
+     * @param n The number of columns
+     */
+    public Matrix(double[][] A, int m, int n)
+    {
+        vals = new double[m][n];
+        int A_m = A.length;
+        int A_n = A[0].length;
         
-        for (double[] row: vals) 
+        for (int i = 0; i < m && i < A_m; i++) 
         {
-            Arrays.fill(row, 0.0);
+            for (int j = 0; j < n && j < A_n; j++)
+            {
+                vals[i][j] = A[i][j];
+            }
         }
+    }
+
+    /**
+     *
+     * Constructs a Matrix with n columns filled with values from provided 
+     * packed vals array. 
+     * 
+     * @param A array of doubles to be stored within matrix
+     * @param n The number of columns
+     */
+    public Matrix(double[] A, int n)
+    {
+        if (A.length % n == 0)
+        {
+            int m = A.length / n;
+            vals = new double[m][n];
+            for (int i = 0; i < A.length; i++) 
+            {
+                vals[i%m][(int)(i/m)] = A[i];
+            }
+        } else 
+        {
+            throw new IllegalArgumentException("Array length must be a multiple of n");
+        }
+        
     }
 
     /**

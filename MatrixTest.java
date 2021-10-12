@@ -40,6 +40,18 @@ public class MatrixTest
     }
 
     @Test
+    public void testConstructor03()
+    {
+        double[] testVals = {1.,2.,3.,4.,5.,6.,7.,8.,9.};
+
+        Matrix A = new Matrix(testVals, 3);
+
+        double[][] correctVals = {{1.,4.,7.},{2.,5.,8.},{3.,6.,9.}};
+        
+        assertEquals(A.getVals(), correctVals);
+    }
+
+    @Test
     public void testTimesMatrix00()
     {
         Matrix A = new Matrix(3, 2, 5.);
