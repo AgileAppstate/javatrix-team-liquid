@@ -120,6 +120,27 @@ public class Matrix implements Cloneable, Serializable
 
     /**
      *
+     * Create identity matrix of given size. 
+     * (must be square matrix)
+     *
+     * @param j number of rows and columns 
+     *
+     * @return The identity matrix of size j by j
+     */
+    public static Matrix identity(int j) 
+    {
+        double[][] identityVals = new double[j][j];
+        
+        for(int i = 0; i < j; i++) 
+        {
+            identityVals[i][i] = 1.;
+        }
+        
+        return new Matrix(identityVals);
+    }
+
+    /**
+     *
      * Performs linear algebraic matrix multiplication. 
      * Dot product of each row of this matrix by each col of B matrix. 
      *

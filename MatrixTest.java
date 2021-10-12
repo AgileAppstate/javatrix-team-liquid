@@ -90,4 +90,14 @@ public class MatrixTest
 
 	    assertEquals(prod.getVals(), correctVals);
     }
+
+    @Test
+    public void testIdentity()
+    {
+        Matrix A = Matrix.identity(3);
+
+        double[][] correctVals = {{1.,0.,0.},{0.,1.,0.},{0.,0.,1.}};
+        
+        assertEquals(A.getVals(), correctVals);
+    }
 }
