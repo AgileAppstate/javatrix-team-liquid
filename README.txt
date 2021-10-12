@@ -1,1 +1,1 @@
-Implementing Java Matrix API based on a specification from CS 5666.
+Implementing a Java Matrix API based on a specification from CS 5666.
