@@ -38,6 +38,23 @@ public class Matrix implements Cloneable, Serializable
 
     /**
      *
+     * Constructs an m x n Matrix filled with 0's
+     *
+     * @param m The number of rows
+     * @param n The number of columns
+     */
+    public Matrix(int m, int n)
+    {
+        vals = new double[m][n];
+        
+        for (double[] row: vals) 
+        {
+            Arrays.fill(row, 0.0);
+        }
+    }
+
+    /**
+     *
      * Calculates the dot product of two vectors
      *
      * @param a vector defined by array
@@ -71,27 +88,28 @@ public class Matrix implements Cloneable, Serializable
         
         double[][] bVals = B.getVals(); // Used to grab columns for dot product multiplications
         int m = this.vals.length; // Rows of product matrix
-	int n = bVals[0].length; // Cols of product matrix
-	double[][] prod = new double[m][n];
+	    int n = bVals[0].length; // Cols of product matrix
+	    double[][] prod = new double[m][n];
 
-	// These vector lengths should be the same. Calculating them both 
-	// so that checking for valid multplication later is easier to implement. 
-	double[] rowVector = new double[this.vals[0].length];
-	double[] colVector = new double[bVals.length];
+	    // These vector lengths should be the same. Calculating them both 
+	    // so that checking for valid multplication later is easier to implement. 
+	    double[] rowVector = new double[this.vals[0].length];
+	    double[] colVector = new double[bVals.length];
 
-	for (int i = 0; i < m; i++) 
+	    for (int i = 0; i < m; i++) 
         {
-		rowVector = this.vals[i];
-		for (int j = 0; j < n; j++) 
-            	{
-			for (int k = 0; k < bVals.length; k++) 
-                	{
-				colVector[k] = bVals[k][j];
-			}
+	    	rowVector = this.vals[i];
+	    	for (int j = 0; j < n; j++) 
+            {
+	    	    for (int k = 0; k < bVals.length; k++) 
+                {
+	    			colVector[k] = bVals[k][j];
+	    		}
 
-                	prod[i][j] = Matrix.dotProduct(rowVector, colVector);
-		}
-	}
+                prod[i][j] = Matrix.dotProduct(rowVector, colVector);
+	        }
+	    }
+
         return new Matrix(prod);
     }
 
