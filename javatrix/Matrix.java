@@ -139,6 +139,28 @@ public class Matrix implements Cloneable, Serializable
 
         return new Matrix(transposeVals);
     }
+
+    /**
+     *
+     * Returns the row dimension of the current matrix
+     *
+     * @return The row dimension
+     */
+    public int getRowDimension()
+    {
+        return this.getVals().length;
+    }
+
+    /**
+     *
+     * Returns the column dimension of the current matrix
+     *
+     * @return The column dimension
+     */
+    public int getColumnDimension()
+    {
+        return this.getVals()[0].length;
+    }
 		
 
     /**
