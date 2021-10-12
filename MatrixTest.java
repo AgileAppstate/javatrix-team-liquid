@@ -99,5 +99,45 @@ public class MatrixTest
         double[][] correctVals = {{1.,0.,0.},{0.,1.,0.},{0.,0.,1.}};
         
         assertEquals(A.getVals(), correctVals);
+
+    @Test
+    public void testTranspose()
+    {
+        double[][] aVals = {{2.,5.,2.,12.,7.},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix A = new Matrix(aVals);
+
+        Matrix transposeA = A.transpose();
+
+        double[][] correctVals = {{2.,4.,9.},{5.,32.,3.},{2.,3.,10.},{12.,0.,9},{7.,2.,3}};
+
+        assertEquals(transposeA.getVals(), correctVals);
+    }
+
+    @Test
+    public void testGetRowDimension()
+    {
+        Matrix A = new Matrix(2, 3, 5.);
+        
+        double[][] bVals = {{2.,5.,2.,12.,7},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix B = new Matrix(bVals);
+
+        assertEquals(A.getRowDimension(), 2);
+        assertEquals(B.getRowDimension(), 3);
+    }
+
+    @Test
+    public void testGetColumnDimension()
+    {
+        Matrix A = new Matrix(2, 3, 5.);
+        
+        double[][] bVals = {{2.,5.,2.,12.,7},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix B = new Matrix(bVals);
+
+        assertEquals(A.getColumnDimension(), 3);
+        assertEquals(B.getColumnDimension(), 5);
+
     }
 }

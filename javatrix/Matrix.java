@@ -200,6 +200,50 @@ public class Matrix implements Cloneable, Serializable
 
 	    return new Matrix(prod);
     }
+
+    /**
+     *
+     * Takes the transpose of the current matrix
+     *
+     * @return The transposed matrix
+     */
+    public Matrix transpose()
+    {
+        double[][] currVals = this.getVals();
+        double[][] transposeVals = new double[currVals[0].length][currVals.length];
+
+        for(int i = 0; i < currVals[0].length; i++)
+        {
+            for(int j = 0; j < currVals.length; j++)
+            {
+                transposeVals[i][j] = currVals[j][i];
+            }
+        }
+
+        return new Matrix(transposeVals);
+    }
+
+    /**
+     *
+     * Returns the row dimension of the current matrix
+     *
+     * @return The row dimension
+     */
+    public int getRowDimension()
+    {
+        return this.getVals().length;
+    }
+
+    /**
+     *
+     * Returns the column dimension of the current matrix
+     *
+     * @return The column dimension
+     */
+    public int getColumnDimension()
+    {
+        return this.getVals()[0].length;
+    }
 		
 
     /**
