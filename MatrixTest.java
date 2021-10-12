@@ -99,6 +99,7 @@ public class MatrixTest
         double[][] correctVals = {{1.,0.,0.},{0.,1.,0.},{0.,0.,1.}};
         
         assertEquals(A.getVals(), correctVals);
+    }
 
     @Test
     public void testTranspose()
