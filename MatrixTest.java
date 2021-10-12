@@ -82,4 +82,30 @@ public class MatrixTest
 
         assertEquals(transposeA.getVals(), correctVals);
     }
+
+    @Test
+    public void testGetRowDimension()
+    {
+        Matrix A = new Matrix(2, 3, 5.);
+        
+        double[][] bVals = {{2.,5.,2.,12.,7},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix B = new Matrix(bVals);
+
+        assertEquals(A.getRowDimension(), 2);
+        assertEquals(B.getRowDimension(), 3);
+    }
+
+    @Test
+    public void testGetColumnDimension()
+    {
+        Matrix A = new Matrix(2, 3, 5.);
+        
+        double[][] bVals = {{2.,5.,2.,12.,7},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+
+        Matrix B = new Matrix(bVals);
+
+        assertEquals(A.getColumnDimension(), 3);
+        assertEquals(B.getColumnDimension(), 5);
+    }
 }
