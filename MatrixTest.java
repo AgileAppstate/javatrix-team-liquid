@@ -30,6 +30,28 @@ public class MatrixTest
     }
 	
     @Test
+    public void testConstructor02()
+    {
+        double[][] testVals = {{0.,0.,0.},{0.,0.,0.},{0.,0.,0.}};
+
+        Matrix A = new Matrix(3,3);
+
+        assertEquals(A.getVals(), testVals);
+    }
+
+    @Test
+    public void testConstructor03()
+    {
+        double[] testVals = {1.,2.,3.,4.,5.,6.,7.,8.,9.};
+
+        Matrix A = new Matrix(testVals, 3);
+
+        double[][] correctVals = {{1.,4.,7.},{2.,5.,8.},{3.,6.,9.}};
+        
+        assertEquals(A.getVals(), correctVals);
+    }
+
+    @Test
     public void testTimesMatrix00()
     {
         Matrix A = new Matrix(3, 2, 5.);
@@ -70,6 +92,16 @@ public class MatrixTest
     }
 
     @Test
+    public void testIdentity()
+    {
+        Matrix A = Matrix.identity(3);
+
+        double[][] correctVals = {{1.,0.,0.},{0.,1.,0.},{0.,0.,1.}};
+        
+        assertEquals(A.getVals(), correctVals);
+    }
+
+    @Test
     public void testTranspose()
     {
         double[][] aVals = {{2.,5.,2.,12.,7.},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
@@ -107,5 +139,6 @@ public class MatrixTest
 
         assertEquals(A.getColumnDimension(), 3);
         assertEquals(B.getColumnDimension(), 5);
+
     }
 }
