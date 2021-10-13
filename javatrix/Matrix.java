@@ -194,7 +194,7 @@ public class Matrix implements Cloneable, Serializable
 	    {
 		    for (int j = 0; j < this.vals[0].length; j++)
 		    {
-			    prod[i][j] = this.vals[i][j] * s;
+			    prod[i][j] = Math.floor((this.vals[i][j] * s) * 100) / 100;
 		    }
 	    }
 
