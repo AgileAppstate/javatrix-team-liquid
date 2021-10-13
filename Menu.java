@@ -20,7 +20,8 @@ public class Menu
             System.out.println("Transpose Matrix [2]");
             System.out.println("Multiply by Scalar [3]");
             System.out.println("Multiply by Matrix [4]");
-            System.out.println("Quit [5]");
+            System.out.println("Identity Matrix [5]");
+            System.out.println("Quit [6]");
 
             int input = 0;
             boolean flag = false;
@@ -64,7 +65,9 @@ public class Menu
                         System.out.println();
                         A.times(B).print(5, 2);
                         break;
-                case 5: sentinel = true;
+                case 5: Matrix.identity(5).print(5, 2);
+                        break;
+                case 6: sentinel = true;
                         break;
                 default: System.out.println("Valid integer not entered");
                          break;
@@ -76,6 +79,6 @@ public class Menu
 
     private static double rand()
     {   
-        return Math.floor((num.nextDouble() + (num.nextInt(10)) * 100)) / 100;
+        return Math.floor((num.nextDouble() + (num.nextInt(10))) * 100) / 100;
     }
 }

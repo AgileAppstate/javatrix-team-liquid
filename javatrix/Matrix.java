@@ -115,7 +115,7 @@ public class Matrix implements Cloneable, Serializable
             dotprod += a[i] * b[i];
         }
         
-        return dotprod;
+        return Math.floor(dotprod * 100) / 100;
     }
 
     /**

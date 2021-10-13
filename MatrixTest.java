@@ -139,7 +139,6 @@ public class MatrixTest
 
         assertEquals(A.getColumnDimension(), 3);
         assertEquals(B.getColumnDimension(), 5);
-
     }
 
     @Test
@@ -154,6 +153,5 @@ public class MatrixTest
 
         assertEquals(A.getMatrix(0,0,0,0), correctSubA);
         assertEquals(B.getMatrix(1,3,0,2), correctSubB);
-
     }
 }
