@@ -141,4 +141,19 @@ public class MatrixTest
         assertEquals(B.getColumnDimension(), 5);
 
     }
+
+    @Test
+    public void testGetMatrix()
+    {
+        Matrix A = new Matrix(2, 3, 5.);
+        double[][] correctSubA = {{5.}};
+        
+        double[][] bVals = {{2.,5.,2.,12.,7},{4.,32.,3.,0.,2.},{9.,3.,10.,9.,3.}};
+        Matrix B = new Matrix(bVals);
+        double[][] correctSubB = {{5.,2.,12.},{32.,3.,0.},{3.,10.,9.}};
+
+        assertEquals(A.getMatrix(0,0,0,0), correctSubA);
+        assertEquals(B.getMatrix(1,3,0,2), correctSubB);
+
+    }
 }

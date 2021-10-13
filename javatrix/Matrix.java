@@ -299,4 +299,37 @@ public class Matrix implements Cloneable, Serializable
     {
         return vals;
     }
+
+    /**
+     * 
+     * Getter for "sub" matrix defined by provided indicies
+     *
+     * @return The vals in the defined sub matrix
+     */
+    public double[][] getMatrix(int i0, int i1, int j0, int j1)
+    {
+        int m_sub = i1 - i0;
+        int n_sub = j1 - j0;
+
+        System.out.println(m_sub);
+        System.out.println(n_sub);
+        System.out.println(vals.length);
+        System.out.println(vals[0].length);
+
+        if (m_sub < 0 || n_sub < 0 || j1 >= vals.length || i1 >= vals[0].length) 
+        {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        double[][] subVals = new double[m_sub+1][n_sub+1];
+        for (int i = i0; i <= i1; i++)
+        {
+            for (int j = j0; j<= j1; j++)
+            {
+                System.out.println("inner for loop: i = " + i + " and i-i0 = " + (i - i0));
+                System.out.println("                j = " + j + " and j-j0 = " + (j - j0));
+                subVals[j-j0][i-i0] = vals[j][i];
+            }
+        }
+        return subVals;
+    }
 }
